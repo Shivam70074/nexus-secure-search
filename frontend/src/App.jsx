@@ -97,26 +97,31 @@ function SearchPage({ onStartChat }) {
       </div>
 
       <div className="search-container">
-        <div className="search-input-wrapper">
-          <Search className="search-icon" size={20} />
-          <input 
-            ref={searchInputRef}
-            type="text" 
-            className="search-bar" 
-            placeholder="Describe the developer you are looking for..." 
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
-          />
-          {query ? (
-            <button className="clear-btn" onClick={handleClear}>
-              <X size={16} />
-            </button>
-          ) : (
-            <div className="keyboard-shortcut">
-              <Command size={12} /> K
-            </div>
-          )}
+        <div className="search-input-row">
+          <div className="search-input-wrapper">
+            <Search className="search-icon" size={20} />
+            <input 
+              ref={searchInputRef}
+              type="text" 
+              className="search-bar" 
+              placeholder="Describe the developer you are looking for..." 
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
+            />
+            {query ? (
+              <button className="clear-btn" onClick={handleClear}>
+                <X size={16} />
+              </button>
+            ) : (
+              <div className="keyboard-shortcut">
+                <Command size={12} /> K
+              </div>
+            )}
+          </div>
+          <button className="primary-search-btn" onClick={() => handleSearch(query)}>
+            Search
+          </button>
         </div>
         
         <div className="trust-indicator">
